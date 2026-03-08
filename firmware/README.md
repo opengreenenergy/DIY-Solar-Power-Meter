@@ -2,7 +2,7 @@
 
 A compact handheld solar irradiance meter built using the **Seeed XIAO ESP32-C3**, **INA226**, **LIS2MDL + LSM303**, and a **Waveshare 1.54 inch 240x240 ST7789 TFT display**.
 
-This project is designed for measuring solar irradiance in the field using a reference solar cell, while also showing **tilt**, **azimuth**, and **battery level** in a clean professional LCD interface.
+This project is designed for measuring solar irradiance in the field and also display **tilt**, **azimuth**, and **battery level** in a LCD interface.
 ---
 ## Features
 

@@ -1,4 +1,4 @@
-# DIY Solar Irradiance Meter
+# DIY Solar Power Meter
 
 A compact handheld solar irradiance meter built using the **Seeed XIAO ESP32-C3**, **INA226**, **LIS2MDL + LSM303**, and a **Waveshare 1.54 inch 240x240 ST7789 TFT display**.
 

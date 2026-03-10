@@ -3,8 +3,14 @@
   PROJECT       : DIY Solar Power Meter
   VERSION       : v1.1  (Professional LCD UI)
   UPDATED ON    : 08-Mar-2026
-  AUTHOR        : Open Green Energy
-  LICENSE       : MIT
+  AUTHOR        : Open Green Energy 
+ ============================================================
+  LICENSE       : 
+  Copyright (c) 2026 Open Green Energy 
+  Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+  This project is open-source for learning, research, and personal use.
+  Commercial use is prohibited without written permission
+  from Open Green Energy.  
 
   HARDWARE USED
   -----------------------------------------------------------

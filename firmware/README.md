@@ -38,16 +38,13 @@ https://instagram.com/opengreenenergy
 ## Features
 
 - Measures solar irradiance in **W/m2**
-- Measures **short circuit current (Isc)** using INA226
 - Measures **tilt angle** using accelerometer
 - Measures **azimuth / heading** using magnetometer
 - 4 page professional TFT display UI
 - Single button navigation
 - Long press calibration wizard
 - EEPROM based calibration storage
-- Demo mode for UI testing without sensors
-- Smooth UI updates with reduced flicker
-
+  
 ---
 
 ## Hardware Used

@@ -10,8 +10,7 @@
   Copyright (c) 2026 Open Green Energy 
   Creative Commons Attribution-NonCommercial-ShareAlike 4.0
   This project is open-source for learning, research, and personal use.
-  Commercial use is prohibited without written permission
-  from Open Green Energy.  
+  Commercial use is prohibited without written permission from Open Green Energy.  
 
   HARDWARE USED
   -----------------------------------------------------------

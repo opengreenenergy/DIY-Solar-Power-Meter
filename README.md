@@ -1,8 +1,39 @@
-# DIY Solar Irradiance Meter
+# DIY Solar Power Meter
 
 A compact handheld solar irradiance meter built using the **Seeed XIAO ESP32-C3**, **INA226**, **LIS2MDL + LSM303**, and a **Waveshare 1.54 inch 240x240 ST7789 TFT display**.
 
-This project is designed for measuring solar irradiance in the field using a reference solar cell, while also showing **tilt**, **azimuth**, and **battery level** in a clean professional LCD interface.
+This project is designed for measuring solar irradiance in the field and also display **tilt**, **azimuth**, and **battery level** in a LCD interface.
+
+---
+
+## Open Green Energy
+
+This project is developed by **Open Green Energy**.
+
+🌐 Website  
+https://opengreenenergy.com
+
+▶ YouTube Channel  
+https://www.youtube.com/c/opengreenenergy
+
+📷 Instagram  
+https://instagram.com/opengreenenergy
+
+---
+
+## Full Project Documentation
+
+Step by step build guide is available here:
+
+https://www.instructables.com/DIY-Solar-Power-Meter/
+
+---
+
+## 3D Printed Enclosure
+
+Download the 3D printable enclosure files here:
+
+https://www.printables.com/model/1603265-diy-solar-power-meter
 
 ---
 
@@ -12,7 +43,7 @@ This project is designed for measuring solar irradiance in the field using a ref
 - Measures **short circuit current (Isc)** using INA226
 - Measures **tilt angle** using accelerometer
 - Measures **azimuth / heading** using magnetometer
-- 4-page professional TFT display UI
+- 4 page professional TFT display UI
 - Single button navigation
 - Long press calibration wizard
 - EEPROM based calibration storage
@@ -144,7 +175,7 @@ Shows:
 
 ## Calibration Steps
 
-The firmware includes a 4-step calibration wizard:
+The firmware includes a 4 step calibration wizard:
 
 ### Step 1: Isc Offset
 Cover the reference panel and save the dark current offset.
@@ -171,7 +202,7 @@ Install these libraries from Arduino Library Manager:
 - `Adafruit LIS2MDL`
 - `Adafruit LSM303 Accelerometer`
 - `Adafruit Unified Sensor`
-- `EEPROM`  
+- `EEPROM`
 - `Wire`
 - `SPI`
 

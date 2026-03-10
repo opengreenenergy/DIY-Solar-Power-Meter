@@ -13,13 +13,6 @@ INA226
 LIS2MDL
 LSM303 Accelerometer
 
-# OLED Version Firmware
-
-This firmware runs the **OLED display version** of the DIY Solar Power Meter.
-
-Display used:
-128x64 OLED (SSD1306)
-
 ## Features
 
 - Solar irradiance measurement using INA226

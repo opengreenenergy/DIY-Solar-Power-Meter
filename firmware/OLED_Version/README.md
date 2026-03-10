@@ -1,3 +1,18 @@
+# OLED Firmware
+
+This folder contains the firmware for the OLED display version of the DIY Solar Power Meter.
+
+Main file:
+solar_meter_oled_v1.0.ino
+
+Display:
+128x64 OLED (SSD1306)
+
+Sensors:
+INA226
+LIS2MDL
+LSM303 Accelerometer
+
 # OLED Version Firmware
 
 This firmware runs the **OLED display version** of the DIY Solar Power Meter.

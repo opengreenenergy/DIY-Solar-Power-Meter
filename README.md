@@ -35,6 +35,11 @@ https://www.youtube.com/c/opengreenenergy
 📷 Instagram  
 https://instagram.com/opengreenenergy
 
+❤️ Support Open Green Energy  
+If you like this project and want to support development of more open hardware tools:
+
+https://www.patreon.com/opengreenenergy
+
 ---
 
 ## Project Variants

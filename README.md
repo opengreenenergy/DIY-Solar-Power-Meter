@@ -1,25 +1,14 @@
 # DIY Solar Power Meter
 
-A compact handheld solar irradiance meter built using the **Seeed XIAO ESP32-C3**, **INA226**, **LIS2MDL + LSM303**, and a **Waveshare 1.54 inch 240x240 ST7789 TFT display**.
+A compact handheld solar irradiance meter built using the **Seeed XIAO ESP32-C3**, **INA226**, **LSM303AGR**, and either a **Waveshare 1.54 inch 240x240 ST7789 TFT LCD** or a **128x64 OLED display**.
 
-This project is designed for measuring solar irradiance in the field and also display **tilt**, **azimuth**, and **battery level** in a LCD interface.
+This project is designed for measuring solar irradiance in the field and also displaying **tilt**, **azimuth**, and **battery level** in a compact handheld device.
 
 ---
 
 ## Open Green Energy
 
 This project is developed by **Open Green Energy**.
-
-🌐 Website  
-https://opengreenenergy.com
-
-▶ YouTube Channel  
-https://www.youtube.com/c/opengreenenergy
-
-📷 Instagram  
-https://instagram.com/opengreenenergy
-
----
 
 ## Full Project Documentation
 
@@ -37,31 +26,72 @@ https://www.printables.com/model/1603265-diy-solar-power-meter
 
 ---
 
+🌐 Website  
+https://opengreenenergy.com
+
+▶ YouTube Channel  
+https://www.youtube.com/c/opengreenenergy
+
+📷 Instagram  
+https://instagram.com/opengreenenergy
+
+---
+
+## Project Variants
+
+This repository contains **two firmware versions** of the same project.
+
+### 1. LCD Version
+This version uses a **Waveshare 1.54 inch 240x240 ST7789 TFT LCD** and offers a more graphical user interface.
+
+**Location:**  
+`firmware/LCD_Version/`
+
+**Main features:**
+- 4 page UI
+- Professional graphical display
+- Boot screen with logo
+- Weather style irradiance icon
+- Home, Min/Max, Tilt/Azimuth/Isc, and Compass pages
+- EEPROM based calibration
+
+### 2. OLED Version
+This version uses a **128x64 OLED display** and provides a simpler, low power interface.
+
+**Location:**  
+`firmware/OLED_Version/`
+
+**Main features:**
+- Compact monochrome UI
+- 4 pages
+- Battery display
+- Irradiance, tilt, azimuth, and compass page
+- Full calibration with EEPROM storage
+- Display suitable for minimal hardware builds
+
+---
+
 ## Features
 
 - Measures solar irradiance in **W/m2**
-- Measures **short circuit current (Isc)** using INA226
 - Measures **tilt angle** using accelerometer
 - Measures **azimuth / heading** using magnetometer
-- 4 page professional TFT display UI
+- Battery voltage and battery percentage display
 - Single button navigation
-- Long press calibration wizard
+- Long press calibration
 - EEPROM based calibration storage
-- Demo mode for UI testing without sensors
-- Smooth UI updates with reduced flicker
+- Two firmware variants for different displays
+- Portable field measurement tool
 
 ---
 
 ## Hardware Used
 
 - **MCU:** Seeed XIAO ESP32-C3
-- **Display:** Waveshare 1.54 inch LCD, 240x240, ST7789 SPI
 - **Current Sensor:** INA226
-- **IMU:** Adafruit LIS2MDL Magnetometer
-- **Accelerometer:** Adafruit LSM303 Accelerometer
-- **Battery Measurement:** ADC with resistor divider
-- **User Input:** Single push button
-- **Backlight Control:** PWM on TFT backlight pin
+- **Accelerometer / Magnetometer:** LSM303AGR
+- **Display Option 1:** Waveshare 1.54 inch LCD, 240x240, ST7789 SPI
+- **Display Option 2:** 128x64 OLED display
 
 ---
 
@@ -73,11 +103,13 @@ The measured Isc value is corrected using a stored dark offset and then converte
 
 `Irradiance = Corrected Isc × Calibration Constant`
 
-In this firmware:
+In the LCD firmware:
 
 - **Calibration constant** = `15.05 W/m2 per mA`
 
-Tilt and azimuth are measured using accelerometer and magnetometer data, then filtered for smooth display.
+In the OLED firmware, the calibration constant can be adjusted in code based on the reference panel used.
+
+Tilt and azimuth are measured using accelerometer and magnetometer data, then filtered for stable display.
 
 ---
 
@@ -88,12 +120,24 @@ Tilt and azimuth are measured using accelerometer and magnetometer data, then fi
 | Battery Sense | D0 |
 | MOSFET Gate | D1 |
 | Push Button | D2 |
+
+### LCD Version Additional Pins
+
+| Function | XIAO ESP32-C3 Pin |
+|---------|-------------------|
 | LCD Reset | D3 |
 | LCD CS | D6 |
 | LCD DC | D7 |
 | LCD SCK | D8 |
 | LCD Backlight | D9 |
 | LCD MOSI | D10 |
+
+### OLED / Sensor I2C Bus
+
+| Function | Connection |
+|---------|------------|
+| SDA | I2C SDA |
+| SCL | I2C SCL |
 
 ---
 
@@ -139,43 +183,75 @@ Connection:
 
 ## Button Operation
 
+### LCD Version
 - **Short Press** → Next page
 - **Long Press for 2 seconds** → Calibration wizard
+
+### OLED Version
+- **Short Press** → Next page
+- **Long Press for 2 seconds** → Full calibration
 
 ---
 
 ## UI Pages
 
-### 1. Home Page
+### LCD Version Pages
+
+#### 1. Home Page
 Shows:
 - Irradiance
 - Tilt
 - Azimuth
 - Battery level
 
-### 2. Min / Max Page
+#### 2. Min / Max Page
 Shows:
 - Live irradiance
 - Minimum irradiance
 - Maximum irradiance
 
-### 3. Tilt / Azimuth / Isc Page
+#### 3. Tilt / Azimuth / Isc Page
 Shows:
 - Tilt angle
 - Azimuth angle
 - Isc current
 
-### 4. Orientation Page
+#### 4. Orientation Page
 Shows:
 - Compass style direction display
 - Azimuth in degrees
 - N / E / S / W direction
 
+### OLED Version Pages
+
+#### 1. Home Page
+Shows:
+- Battery percentage
+- Irradiance
+- Tilt
+
+#### 2. Min / Max Page
+Shows:
+- Live irradiance
+- Minimum irradiance
+- Maximum irradiance
+
+#### 3. Tilt / Azimuth Page
+Shows:
+- Tilt angle
+- Azimuth angle
+
+#### 4. Compass Page
+Shows:
+- Compass circle
+- Needle direction
+- Azimuth value
+
 ---
 
 ## Calibration Steps
 
-The firmware includes a 4 step calibration wizard:
+Both firmware versions support calibration and store values in EEPROM.
 
 ### Step 1: Isc Offset
 Cover the reference panel and save the dark current offset.
@@ -183,13 +259,11 @@ Cover the reference panel and save the dark current offset.
 ### Step 2: Tilt Zero
 Keep the device level and save the zero tilt position.
 
-### Step 3: Tilt 90 Degree
-Keep the device vertical and save the 90 degree tilt reference.
+### Step 3: Tilt Reference
+Keep the device vertical and save the tilt reference position.
 
 ### Step 4: Compass Calibration
 Rotate the device slowly so the magnetometer offset can be calculated.
-
-All calibration values are stored in EEPROM.
 
 ---
 
@@ -198,6 +272,7 @@ All calibration values are stored in EEPROM.
 Install these libraries from Arduino Library Manager:
 
 - `Adafruit GFX Library`
+- `Adafruit SSD1306`
 - `Adafruit ST7735 and ST7789 Library`
 - `Adafruit LIS2MDL`
 - `Adafruit LSM303 Accelerometer`
@@ -205,22 +280,27 @@ Install these libraries from Arduino Library Manager:
 - `EEPROM`
 - `Wire`
 - `SPI`
-
-External INA226 library used in this project:
-
 - `INA226.h`
-
-Make sure the installed INA226 library supports:
-- `begin()`
-- `getShuntVoltage_uV()`
 
 ---
 
-## Firmware Settings
+## Firmware Structure
 
-Inside the code you can change:
-
-```cpp
-#define ENABLE_SERIAL_DEBUG 1
-#define DEMO_MODE 1
-#define HEADER_WEATHER_ICON 0
+```text
+DIY-Solar-Power-Meter
+│
+├── firmware
+│   ├── LCD_Version
+│   │   ├── solar_meter_lcd_v1.1.ino
+│   │   └── oge_logo.h
+│   │
+│   ├── OLED_Version
+│   │   └── solar_meter_oled_v1.0.ino
+│   │
+│   └── README.md
+│
+├── images
+│
+├── README.md
+│
+└── LICENSE

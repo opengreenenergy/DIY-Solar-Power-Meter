@@ -1931,7 +1931,7 @@ void setup() {
 
   SPI.begin(LCD_SCK, -1, LCD_MOSI, LCD_CS);
   tft.init(240, 240);
-  tft.setRotation(3);
+  tft.setRotation(1);
   tft.setSPISpeed(40000000);
 
   // Show startup screen first
